@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/send-email', [MailController::class, 'sendMail']);
+Route::get('/send-email', [MailController::class, 'sendEmail']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
