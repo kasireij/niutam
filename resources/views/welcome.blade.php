@@ -93,10 +93,10 @@
             </div>
 
             <div class="links">
-                <a href="/attendance/assign">Clock-In</a>
+                <a href="#">Clock-In</a>
                 <a href="#"></a>
                 <a href="#"></a>
-                <a href="/leave/assign">Clock-Out</a>
+                <a href="#">Clock-Out</a>
             </div>
         </div>
     </div>
