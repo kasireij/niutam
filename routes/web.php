@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 
 /*
@@ -21,5 +22,7 @@ Route::get('/', function () {
 Route::get('/send-email', [MailController::class, 'sendEmail']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.index');
 })->name('dashboard');
+
+Route::get('/user/logout', [HomeController::class, 'Logout'])->name('user.logout');
