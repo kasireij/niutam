@@ -72,29 +72,29 @@
             <li class="dropdown user-menu">
             <button href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                 <img src="{{ asset('backend/assets/img/user/jk.png') }}" class="user-image" alt="User Image" />
-                <span class="d-none d-lg-inline-block">John Kasirei</span>
+                <span class="d-none d-lg-inline-block">{{ Auth::user()->name; }}</span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right">
                 <!-- User image -->
                 <li class="dropdown-header">
                 <img src="{{ asset('backend/assets/img/user/jk.png') }}" class="img-circle" alt="User Image" />
                 <div class="d-inline-block">
-                    John Kasirei <small class="pt-1">jkasirei@niuskypacific.com.pg</small>
+                    {{ Auth::user()->name; }} <small class="pt-1">{{ Auth::user()->email; }}</small>
                 </div>
                 </li>
 
                 <li>
-                <a href="profile.html">
+                <a href="">
                     <i class="mdi mdi-account"></i> My Profile
                 </a>
                 </li>
                 <li>
-                <a href="email-inbox.html">
-                    <i class="mdi mdi-email"></i> Message
+                <a href="">
+                    <i class=""></i> Message
                 </a>
                 </li>
                 <li>
-                <a href="#"> <i class="mdi mdi-settings"></i> Account Setting </a>
+                <a href=""> <i class="mdi mdi-settings"></i> Account Setting </a>
                 </li>
 
                 <li class="dropdown-footer">
