@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +17,43 @@ use App\Http\Controllers\MailController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'Index'])->name('home');
+
+//Pages Routes
+Route::get('/apps', [PageController::class, 'AppsPage'])->name('apps');
+
+Route::get('/directory', [PageController::class, 'DirectoryPage'])->name('directories');
+
+Route::get('/sliders', [HomeController::class, 'HomeSlider'])->name('sliders');
+
+//Documents Routes
+Route::get('/form', [DocumentsController::class, 'FormsPage'])->name('forms');
+
+Route::get('/policy', [DocumentsController::class, 'PoliciesPage'])->name('policies');
+
+Route::get('/circular', [DocumentsController::class, 'CircularsPage'])->name('circulars');
+
+//Admin Group Routes
+Route::group(['middleware' => 'auth'], function(){
+
+    //Admin Directories Routes
+    Route::get('/admin/directories', [DirectoriesController::class, 'Index'])->name('admin.directories');
+    Route::get('/add/directory', [DirectoriesController::class, 'AddDirectory'])->name('add.directory');
+    Route::post('/store/directory', [DirectoriesController::class, 'StoreDirectory'])->name('store.directory');
+    Route::get('/directory/edit/{id}', [DirectoriesController::class, 'Edit']);
+    Route::post('/directory/update/{id}', [DirectoriesController::class, 'Update']);
+    Route::get('/directory/delete/{id}', [DirectoriesController::class, 'Delete']);
+
+    //Admin Sliders Routes    
+    Route::get('/admin/slider', [SliderController::class, 'index'])->name('admin.slider');
+    Route::get('/add/slider', [SliderController::class, 'create'])->name('add.slider');
+    Route::post('/store/slider', [SliderController::class, 'StoreSlider'])->name('store.slider');
+    Route::get('/slider/edit/{id}', [SliderController::class, 'Edit']);
+    Route::post('/slider/update/{id}', [SliderController::class, 'Update']);
+    Route::get('/slider/delete/{id}', [SliderController::class, 'Delete']);
+
 });
+
 
 Route::get('/send-email', [MailController::class, 'sendEmail']);
 

@@ -41,6 +41,11 @@ class User extends Authenticatable
         'two_factor_secret',
     ];
 
+    public function directory() 
+    {
+        return $this->hasOne(Directory::class, 'email_id', 'email');
+    }
+
     /**
      * The attributes that should be cast.
      *

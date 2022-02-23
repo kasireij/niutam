@@ -38,44 +38,102 @@
               </a>              
             </li>
           
-
-          
-
           
             <li  class="has-sub" >
               <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#ui-elements"
                 aria-expanded="false" aria-controls="ui-elements">
-                <i class="mdi mdi-folder-multiple-outline"></i>
-                <span class="nav-text">Attendance</span> <b class="caret"></b>
+                <i class="mdi mdi-navigation"></i>
+                <span class="nav-text">Navigation</span> <b class="caret"></b>
               </a>
               <ul  class="collapse"  id="ui-elements"
                 data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                                    
-                  <li  class="has-sub" >
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#icons"
-                      aria-expanded="false" aria-controls="icons">
-                      <span class="nav-text">Staff</span> <b class="caret"></b>
+                <div class="sub-menu">                                    
+                  <li >
+                    <a class="sidenav-item-link" href="{{ route('home') }}">
+                      <span class="nav-text">Home</span>                      
                     </a>
-                    <ul  class="collapse"  id="icons">
-                      <div class="sub-menu">
-                        
-                        <li >
-                          <a href="">All Staff Attendance</a>
-                        </li>
-
-                        <li >
-                          <a href="">Late Clock-ins</a>
-                        </li>
-                        
-                        <li >
-                          <a href="">Early Clock-outs</a>
-                        </li>
-                        
-                      </div>
-                    </ul>
                   </li>
-                  
+                  <li >
+                    <a class="sidenav-item-link" href="{{ route('apps') }}">
+                      <span class="nav-text">Apps</span>                      
+                    </a>
+                  </li>
+                  <li >
+                    <a class="sidenav-item-link" href="{{ route('directories') }}">
+                      <span class="nav-text">Directories</span>                      
+                    </a>
+                  </li>
+                </div>
+              </ul>
+            </li>
+
+            <li  class="has-sub" >
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#documents"
+                aria-expanded="false" aria-controls="documents">
+                <i class="mdi mdi-folder-multiple-outline"></i>
+                <span class="nav-text">Documents</span> <b class="caret"></b>
+              </a>
+              <ul  class="collapse"  id="documents"
+                data-parent="#sidebar-menu">
+                <div class="sub-menu">                                    
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                        <span class="nav-text">Forms</span>                      
+                      </a>
+                    </li>
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                        <span class="nav-text">Circulars</span>                      
+                      </a>
+                    </li>
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                        <span class="nav-text">Policies</span>                      
+                      </a>
+                    </li>                    
+                </div>
+              </ul>
+            </li>
+
+            <li  class="has-sub" >
+              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#manage-portal"
+                aria-expanded="false" aria-controls="manage-portal">
+                <i class="mdi mdi-folder-multiple-outline"></i>
+                <span class="nav-text text-xs">Portal Management</span> <b class="caret"></b>
+              </a>
+              <ul  class="collapse"  id="manage-portal"
+                data-parent="#sidebar-menu">
+                <div class="sub-menu">
+                  <li>
+                    <a class="sidenav-item-link" href="{{ route('apps') }}">
+                      <span class="nav-text">Manage Internal Apps</span>                      
+                    </a>
+                  </li>                                    
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                        <span class="nav-text">Manage Circulars</span>                      
+                      </a>
+                    </li>
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                        <span class="nav-text">Manage Contact Directories</span>                      
+                      </a>
+                    </li>
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                        <span class="nav-text">Manage Forms</span>                      
+                      </a>
+                    </li>
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('add.slider') }}">
+                        <span class="nav-text">Manage Policies</span>                      
+                      </a>
+                    </li>
+                    <li>
+                      <a class="sidenav-item-link" href="{{ route('admin.slider') }}">
+                        <span class="nav-text">Manage Sliders</span>                      
+                      </a>
+                    </li>                    
                 </div>
               </ul>
             </li>
@@ -95,60 +153,26 @@
                     
                       <li >
                         <a class="sidenav-item-link" href="">
-                          <span class="nav-text">Staff Reports</span>
-                          
+                          <span class="nav-text">Staff Reports</span>                          
                         </a>
                       </li>
 
                       <li >
                         <a class="sidenav-item-link" href="">
-                          <span class="nav-text">Department Reports</span>
-                          
+                          <span class="nav-text">Department Reports</span>                          
                         </a>
                       </li>
 
                       <li >
                         <a class="sidenav-item-link" href="">
-                          <span class="nav-text">Divisional Reports</span>
-                          
+                          <span class="nav-text">Divisional Reports</span>                          
                         </a>
                       </li>     
                   
                 </div>
               </ul>
             </li>
-          
 
-          
-
-          
-            <li  class="has-sub" >
-              <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#documentation"
-                aria-expanded="false" aria-controls="documentation">
-                <i class="mdi mdi-book-open-page-variant"></i>
-                <span class="nav-text">Documentation</span> <b class="caret"></b>
-              </a>
-              <ul  class="collapse"  id="documentation"
-                data-parent="#sidebar-menu">
-                <div class="sub-menu">
-                    
-                      <li class="section-title">
-                        Getting Started
-                      </li> 
-                    
-                      <li >
-                        <a class="sidenav-item-link" href="">
-                          <span class="nav-text">About NiuTAM</span>
-                          
-                        </a>
-                      </li>
-                  
-                </div>
-              </ul>
-            </li>
-          
-
-          
         </ul>
 
       </div>
