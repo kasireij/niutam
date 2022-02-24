@@ -58,6 +58,29 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/slider/update/{id}', [SliderController::class, 'update']);
     Route::get('/slider/delete/{id}', [SliderController::class, 'destroy']);
 
+    //Admin Forms Routes    
+    Route::get('/admin/forms', [FormController::class, 'index'])->name('admin.forms');
+    Route::get('/add/form', [FormController::class, 'create'])->name('add.form');
+    Route::post('/store/form', [FormController::class, 'store'])->name('store.form');
+    Route::get('/form/edit/{id}', [FormController::class, 'edit']);
+    Route::post('/form/update/{id}', [FormController::class, 'update']);
+    Route::get('/form/delete/{id}', [FormController::class, 'destroy']);
+
+    //Admin Circulars Routes    
+    Route::get('/admin/circulars', [CircularController::class, 'index'])->name('admin.circulars');
+    Route::get('/add/circular', [CircularController::class, 'create'])->name('add.circular');
+    Route::post('/store/circular', [CircularController::class, 'store'])->name('store.circular');
+    Route::get('/circular/edit/{id}', [CircularController::class, 'edit']);
+    Route::post('/circular/update/{id}', [CircularController::class, 'update']);
+    Route::get('/circular/delete/{id}', [CircularController::class, 'destroy']);
+
+    //Admin Policies Routes    
+    Route::get('/admin/policies', [PolicyController::class, 'index'])->name('admin.policies');
+    Route::get('/add/policy', [PolicyController::class, 'create'])->name('add.policy');
+    Route::post('/store/policy', [PolicyController::class, 'store'])->name('store.policy');
+    Route::get('/policy/edit/{id}', [PolicyController::class, 'edit']);
+    Route::post('/policy/update/{id}', [PolicyController::class, 'update']);
+    Route::get('/policy/delete/{id}', [PolicyController::class, 'destroy']);
 });
 
 
