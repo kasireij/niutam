@@ -77,17 +77,17 @@
                 data-parent="#sidebar-menu">
                 <div class="sub-menu">                                    
                     <li>
-                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                      <a class="sidenav-item-link" href="{{ route('forms') }}">
                         <span class="nav-text">Forms</span>                      
                       </a>
                     </li>
                     <li>
-                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                      <a class="sidenav-item-link" href="{{ route('circulars') }}">
                         <span class="nav-text">Circulars</span>                      
                       </a>
                     </li>
                     <li>
-                      <a class="sidenav-item-link" href="{{ route('home') }}">
+                      <a class="sidenav-item-link" href="{{ route('policies') }}">
                         <span class="nav-text">Policies</span>                      
                       </a>
                     </li>                    

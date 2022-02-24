@@ -11,7 +11,7 @@
                     <h6 class="text-primary text-capitalize ps-3">Manage Sliders</h6>
                     </div>
                     <div class="mt-2">
-                        <a href="{{ route('add.slider') }}"> <button class="btn btn-info">Add Slider</button></a>
+                        <a href="{{ route('add.slider') }}"> <button class="btn btn-primary">Add Slider</button></a>
                     </div> 
                 </div>
                 <div class="card-body px-0 pb-2">
@@ -48,8 +48,8 @@
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center text-sm">
-                                        <a href="{{ url('slider/edit/'.$slider->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ url('slider/delete/'.$slider->id) }}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
+                                        <a href="{{ url('slider/edit/'.$slider->id) }}"><button class="btn btn-primary btn-default">Edit</button></a>
+                                        <button href="{{ url('slider/delete/'.$slider->id) }}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</button>
                                     </div>
                                 </td>
                             </tr>
@@ -63,5 +63,6 @@
         </div>
     </div>
 </div>
+
 
 @endsection

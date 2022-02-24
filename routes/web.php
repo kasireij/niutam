@@ -1,10 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\CircularController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,11 +33,11 @@ Route::get('/directory', [PageController::class, 'DirectoryPage'])->name('direct
 Route::get('/sliders', [HomeController::class, 'HomeSlider'])->name('sliders');
 
 //Documents Routes
-Route::get('/form', [DocumentsController::class, 'FormsPage'])->name('forms');
+Route::get('/forms', [FormController::class, 'index'])->name('forms');
 
-Route::get('/policy', [DocumentsController::class, 'PoliciesPage'])->name('policies');
+Route::get('/policy', [PolicyController::class, 'index'])->name('policies');
 
-Route::get('/circular', [DocumentsController::class, 'CircularsPage'])->name('circulars');
+Route::get('/circular', [CircularController::class, 'index'])->name('circulars');
 
 //Admin Group Routes
 Route::group(['middleware' => 'auth'], function(){
@@ -51,9 +54,9 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/admin/slider', [SliderController::class, 'index'])->name('admin.slider');
     Route::get('/add/slider', [SliderController::class, 'create'])->name('add.slider');
     Route::post('/store/slider', [SliderController::class, 'store'])->name('store.slider');
-    Route::get('/slider/edit/{id}', [SliderController::class, 'Edit']);
-    Route::post('/slider/update/{id}', [SliderController::class, 'Update']);
-    Route::get('/slider/delete/{id}', [SliderController::class, 'Delete']);
+    Route::get('/slider/edit/{id}', [SliderController::class, 'edit']);
+    Route::post('/slider/update/{id}', [SliderController::class, 'update']);
+    Route::get('/slider/delete/{id}', [SliderController::class, 'destroy']);
 
 });
 

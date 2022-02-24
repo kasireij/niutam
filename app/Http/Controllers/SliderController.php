@@ -55,7 +55,7 @@ class SliderController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        return Redirect()->route('admin.sliders')->with('success', 'Slider inserted successfully');
+        return Redirect()->route('admin.slider')->with('success', 'Slider inserted successfully');
     }
 
     /**
@@ -77,7 +77,8 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sliders = Slider::find($id);
+        return view('admin.sliders.edit', compact('sliders'));
     }
 
     /**
@@ -89,7 +90,41 @@ class SliderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $old_image = $request->old_image;
+
+        $image = $request->file('image');
+
+        if($image){
+            $name_gen = hexdec(uniqid());
+            $img_ext = strtolower($image->getClientOriginalExtension());
+            $img_name = $name_gen.'.'.$img_ext;
+            $up_location = 'backend/assets/img/slider/';
+            $last_img = $up_location.$img_name;
+            $image->move($up_location,$img_name);
+
+        unlink($old_image);
+        Slider::find($id)->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $last_img,            
+            'buttontext' => $request->buttontext,
+            'buttonlink' => $request->buttonlink,
+            'created_at' => Carbon::now()
+        ]);
+
+        return Redirect()->route('admin.slider')->with('success', 'Slider updated successfully');
+
+        }else{
+            Slider::find($id)->update([
+                'title' => $request->title,
+                'description' => $request->description,             
+                'buttontext' => $request->buttontext,
+                'buttonlink' => $request->buttonlink,
+                'created_at' => Carbon::now()
+            ]);
+    
+            return Redirect()->route('admin.slider')->with('success', 'Slider updated successfully');
+        }
     }
 
     /**
@@ -100,6 +135,11 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $slide = Slider::find($id);
+        $old_image = $slide->image;
+        unlink($old_image);
+
+        Slider::find($id)->delete();
+        return Redirect()->route('admin.slider')->with('success', 'Slider deleted successfully');
     }
 }
