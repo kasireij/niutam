@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Image;
 use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class SliderController extends Controller
 {
@@ -37,7 +39,23 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $slider_image = $request->file('image');
+
+        $name_gen = hexdec(uniqid()).'.'.$slider_image->getClientOriginalExtension();
+        Image::make($slider_image)->resize(1920,1088)->save('backend/assets/img/slider/'.$name_gen);
+
+        $last_img = 'backend/assets/img/slider/'.$name_gen;
+        
+        Slider::insert([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $last_img,
+            'buttontext' => $request->buttontext,
+            'buttonlink' => $request->buttonlink,
+            'created_at' => Carbon::now()
+        ]);
+
+        return Redirect()->route('admin.sliders')->with('success', 'Slider inserted successfully');
     }
 
     /**

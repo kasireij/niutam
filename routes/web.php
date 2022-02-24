@@ -18,6 +18,9 @@ use App\Http\Controllers\SliderController;
 */
 
 Route::get('/', [HomeController::class, 'Index'])->name('home');
+Route::get('/hero', function(){
+    return view('hero');
+});
 
 //Pages Routes
 Route::get('/apps', [PageController::class, 'AppsPage'])->name('apps');
@@ -47,7 +50,7 @@ Route::group(['middleware' => 'auth'], function(){
     //Admin Sliders Routes    
     Route::get('/admin/slider', [SliderController::class, 'index'])->name('admin.slider');
     Route::get('/add/slider', [SliderController::class, 'create'])->name('add.slider');
-    Route::post('/store/slider', [SliderController::class, 'StoreSlider'])->name('store.slider');
+    Route::post('/store/slider', [SliderController::class, 'store'])->name('store.slider');
     Route::get('/slider/edit/{id}', [SliderController::class, 'Edit']);
     Route::post('/slider/update/{id}', [SliderController::class, 'Update']);
     Route::get('/slider/delete/{id}', [SliderController::class, 'Delete']);
